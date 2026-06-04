@@ -1,7 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+declare(strict_types=1);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RegisteredUserController;
+use App\Http\Controllers\SessionsController;
+
+Route::get('/', fn () => view('welcome'));
+
+Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+
+
+Route::get('/login', [SessionsController::class, 'create']);
+Route::post('/login', [SessionsController::class, 'login']);
+Route::post('/logout', [SessionsController::class, 'destroy'])->middleware('auth');
