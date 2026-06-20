@@ -21,7 +21,7 @@
         @guest
             <div class="flex gap-x-5 items-center">
                 <a href="/login">Sign In</a>
-                <a href="/register">Register</a>
+                <a href="/register" class="btn">Register</a>
             </div>
         @endguest
     </div>
